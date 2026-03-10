@@ -20,3 +20,29 @@ Analyzed 100k+ records to map the trajectory of the platform and define the core
 **Infrastructure:** The massive concentration in the Southeast (SP/RJ/MG) validates the need for localized distribution centers to lower freight costs.
 
 **Operations:** Half of all shopping activity occurs after 19:00, suggesting that high-impact marketing and IT support should be prioritized for the evening window.
+
+
+### Phase 3: Economic Impact & Logistics Performance
+* **Goal:** Evaluate the financial health of the platform and the efficiency of the national delivery network.
+
+| **Category** | **Technical Implementation** | **Key Business Insight** |
+| :--- | :--- | :--- |
+| **Revenue Growth** | `SUM()` & `JOIN` with Jan-Aug date filters. | **52% Revenue Surge:** 2018 outperformed 2017 by over R$3.5M in the same 8-month window. |
+| **Logistics** | `DATE_DIFF()` to measure Actual vs. Estimated delivery. | **Under-Promise, Over-Deliver:** High safety buffers are used to manage customer expectations effectively. |
+| **Shipping Costs** | `AVG()` freight cost aggregated by state. | **The 2.8x Gap:** Freight in the North (RR/PB) is nearly triple the cost of the Southeast (SP). |
+
+### Phase 4: Payment Behavior & Psychology
+* **Goal:** Analyze how credit availability and installment plans drive high-ticket sales.
+
+| **Category** | **Technical Implementation** | **Key Business Insight** |
+| :--- | :--- | :--- |
+| **Payment Mix** | Volume distribution across payment types. | **Credit Dominance:** 75% of all transactions are powered by Credit Cards. |
+| **Credit Reliance** | Frequency analysis of `payment_installments`. | **The 10-Slice Trend:** Significant consumer clusters at 1, 5, and 10 installments. |
+| **Price Correlation** | `AVG()` value vs. installment count. | **Financing Strategy:** Average Order Value (AOV) triples when 10+ installments are used. |
+
+### Final Strategic Recommendations
+* **Regional Fulfillment:** Establishing "Satelite Warehouses" in the North/Northeast could reduce freight by 30-40% and unlock market share in high-cost states like RR and PB.
+
+* **Payment Optimization:** Since high-ticket items rely on 10+ installments, marketing should prioritize "Interest-Free" messaging for any product over $150.
+
+* **Operational Scheduling:** Shift IT maintenance and marketing deployments to the morning hours to protect the high-traffic "Afternoon/Night" revenue window.
