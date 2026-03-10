@@ -132,3 +132,38 @@ Freight costs in PB and RR are nearly 3x higher than in SP.
 This highlights a massive "Logistics Tax" on Northern regions, 
 impacting price competitiveness outside the Southeast.
 */
+
+
+
+-- Advanced Logistics: Categorizing Shipping Speed Efficiency
+-- Goal: Identify the percentage of "Success" (Fast) vs. "Failure" (Late) deliveries.
+SELECT 
+    CASE 
+        WHEN DATE_DIFF(order_delivered_customer_date, order_purchase_timestamp, DAY) <= 7 THEN 'Fast (Under 1 Week)'
+        WHEN DATE_DIFF(order_delivered_customer_date, order_purchase_timestamp, DAY) <= 15 THEN 'Standard (1-2 Weeks)'
+        WHEN DATE_DIFF(order_delivered_customer_date, order_purchase_timestamp, DAY) <= 30 THEN 'Slow (2-4 Weeks)'
+        ELSE 'Critical (30+ Days)'
+    END AS delivery_speed_segment,
+    COUNT(order_id) AS order_count,
+    ROUND(COUNT(order_id) * 100 / SUM(COUNT(order_id)) OVER(), 2) AS pct_of_total
+FROM `Project1.orders`
+WHERE order_status = 'delivered' 
+  AND order_delivered_customer_date IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC;
+
+/* OUTPUT:
+delivery_speed_segment	order_count	pct_of_total
+	Standard (1-2 Weeks)	39567	41.01
+	Fast (Under 1 Week)		33696	34.93
+	Slow (2-4 Weeks)		19090	19.79
+	Critical (30+ Days)		4117	4.27
+*/
+
+/* INSIGHT: 
+The platform maintains a 75.9% 'Healthy Delivery' rate (Under 15 days). 
+However, 24% of the business experiences delivery times exceeding 2 weeks, 
+with 4.27% in the 'Critical' category (30+ days). This distribution confirms 
+that logistics friction is not an outlier but a systemic issue for nearly 
+a quarter of all transactions.
+*/

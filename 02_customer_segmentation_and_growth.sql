@@ -119,3 +119,56 @@ ORDER BY 2 DESC;
 that marketing campaigns and server maintenance should be scheduled to 
 avoid this high-traffic window.
 */
+
+
+-- Advanced Growth: Running Total and Cumulative % of Customers by State
+-- This demonstrates mastery of Window Functions (OVER).
+SELECT 
+    customer_state,
+    customer_count,
+    ROUND(SUM(customer_count) OVER(ORDER BY customer_count DESC) / SUM(customer_count) OVER() * 100, 2) AS cumulative_market_share_pct
+FROM (
+    SELECT customer_state, COUNT(customer_unique_id) AS customer_count
+    FROM `Project1.customers`
+    GROUP BY 1
+)
+ORDER BY customer_count DESC;
+
+/* OUTPUT:
+customer_state	customer_count	cumulative_market_share_pct
+		SP			41746				41.98
+		RJ			12852				54.9
+		MG			11635				66.61
+		RS			5466				72.1
+		PR			5045				77.18
+		SC			3637				80.83
+		BA			3380				84.23
+		DF			2140				86.38
+		ES			2033				88.43
+		GO			2020				90.46
+		PE			1652				92.12
+		CE			1336				93.46
+		PA			975					94.44	
+		MT			907					95.36
+		MA			747					96.11	
+		MS			715					96.83	
+		PB			536					97.37	
+		PI			495					97.86
+		RN			485					98.35
+		AL			413					98.77
+		SE			350					99.12
+		TO			280					99.4
+		RO			253					99.66
+		AM			148					99.8
+		AC			81					99.89
+		AP			68					99.95
+		RR			46					100.0
+
+*/
+
+/* INSIGHT: 
+Pareto Analysis reveals that the top 3 states (SP, RJ, MG) account for 66.6% 
+of the total customer base. Furthermore, the '80% Milestone' is reached by 
+just the 6th state (SC), indicating that logistics and marketing efforts 
+targeting only 22% of Brazil's states capture 80% of total platform volume.
+*/
