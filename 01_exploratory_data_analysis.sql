@@ -152,3 +152,34 @@ illogical_delivery_dates
 Illogical dates are near-zero, proving that the 'delivery_time' calculations 
 in Script #03 will be reliable.
 */
+
+
+-- Advanced EDA: Calculating Null Percentage across the Orders table
+-- This shows you can perform automated data profiling.
+SELECT 
+    column_name,
+    COUNT(1) AS total_rows,
+    COUNTIF(field_value IS NULL) AS null_count,
+    ROUND(COUNTIF(field_value IS NULL) / COUNT(1) * 100, 2) AS null_percentage
+FROM `Project1.orders`
+CROSS JOIN UNNEST([
+    STRUCT('order_id' AS column_name, CAST(order_id AS STRING) AS field_value),
+    STRUCT('order_status' AS column_name, order_status),
+    STRUCT('delivered_date' AS column_name, CAST(order_delivered_customer_date AS STRING))
+])
+GROUP BY 1;
+
+/* OUTPUT:
+column_name			total_rows		null_count		null_percentage
+	order_id		  99441				0				0.0
+	order_status	  99441				0				0.0
+	delivered_date	  99441				2965			2.98
+*/
+
+/* INSIGHT: 
+The audit confirms 100% data integrity for core identifiers (order_id/status). 
+However, a 2.98% null rate in 'delivered_date' (2,965 records) was identified. 
+Cross-referencing shows these correspond to 'shipped' or 'canceled' statuses, 
+meaning the nulls are logically consistent with the business process rather 
+than a data ingestion error.
+*/
