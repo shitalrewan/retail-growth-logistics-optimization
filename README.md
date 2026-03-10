@@ -37,7 +37,7 @@ Analyzed 100k+ records to map the trajectory of the platform and define the core
 
 | **Category** | **Technical Implementation** | **Key Business Insight** |
 | :--- | :--- | :--- |
-| **Revenue Growth** | `SUM()` & `JOIN` with Jan-Aug date filters. | **52% Revenue Surge:** 2018 outperformed 2017 by over R$3.5M in the same 8-month window. |
+| **Revenue Growth** | `SUM()` & `JOIN` with Jan-Aug date filters. | **52% Revenue Surge:** 2018 outperformed 2017 by over $3.5M in the same 8-month window. |
 | **Logistics** | `DATE_DIFF()` to measure Actual vs. Estimated delivery. | **Under-Promise, Over-Deliver:** High safety buffers are used to manage customer expectations effectively. |
 | **Shipping Costs** | `AVG()` freight cost aggregated by state. | **The 2.8x Gap:** Freight in the North (RR/PB) is nearly triple the cost of the Southeast (SP). |
 
