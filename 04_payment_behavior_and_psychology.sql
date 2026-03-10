@@ -125,3 +125,64 @@ There is a direct positive correlation: as the price of the order increases,
 the number of installments increases. Orders paid in 10 installments are, 
 on average, 3x more expensive than those paid in full.
 */
+
+
+-- Advanced Payments: Localized Payment Dominance
+-- Goal: Identify the #1 payment method for each state to guide regional marketing.
+WITH StatePaymentVolumes AS (
+    SELECT 
+        c.customer_state,
+        p.payment_type,
+        COUNT(p.order_id) AS transaction_count,
+        RANK() OVER(PARTITION BY c.customer_state ORDER BY COUNT(p.order_id) DESC) AS local_rank
+    FROM `Project1.payments` AS p
+    JOIN `Project1.orders` AS o ON p.order_id = o.order_id
+    JOIN `Project1.customers` AS c ON o.customer_id = c.customer_id
+    GROUP BY 1, 2
+)
+SELECT 
+    customer_state,
+    payment_type,
+    transaction_count
+FROM StatePaymentVolumes
+WHERE local_rank = 1
+ORDER BY transaction_count DESC;
+
+/* OUTPUT:
+customer_state	payment_type	transaction_count
+	SP			credit_card			32168
+	RJ			credit_card			10288
+	MG			credit_card			9070
+	RS			credit_card			3985
+	PR			credit_card			3786
+	SC			credit_card			2713
+	BA			credit_card			2662	
+	DF			credit_card			1700
+	ES			credit_card			1573
+	GO			credit_card			1520
+	PE			credit_card			1334
+	CE			credit_card			1091
+	PA			credit_card			728
+	MT			credit_card			659
+	MA			credit_card			535
+	MS			credit_card			519
+	PB			credit_card			428
+	RN			credit_card			394
+	PI			credit_card			389
+	AL			credit_card			341
+	SE			credit_card			264
+	TO			credit_card			197
+	RO			credit_card			186
+	AM			credit_card			124
+	AC			credit_card			61
+	AP			credit_card			47
+	RR			credit_card			33
+*/
+
+/* INSIGHT: 
+Using RANK() and PARTITION BY, the audit reveals a 100% regional consensus. 
+Credit cards are the #1 payment method in every single Brazilian state (27/27).
+In the primary hub of SP, credit transactions outpace the next state (RJ) 
+by a 3:1 margin, confirming that platform scalability is fundamentally 
+linked to credit card processing and installment availability.
+*/
