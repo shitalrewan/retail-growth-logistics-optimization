@@ -18,11 +18,10 @@ retail-growth-logistics-optimization/
 │   └── 04_dim_payment_behavior.sql
 └── README.md                # Project documentation
 
-```markdown
 ### 🚀 Key Deliverables
-* 📊 **[Executive Summary & Insights (PDF)](reports/E-commerce%20Analysis_%20Insights%20&%20Recommendations.pdf)** - High-level business recommendations.
-* 🔍 **[Technical Deep Dive (PDF)](reports/project_deep_dive.pdf)** - Detailed methodology and extended visualizations.
-* 💾 **[SQL Data Pipeline](sql_scripts/)** - Production-ready scripts for data transformation.
+* 📊 **[Executive Summary & Insights (PDF)](reports/E-commerce%20Analysis_%20Insights%20&%20Recommendations.pdf)**
+* 🔍 **[Technical Deep Dive (PDF)](reports/project_deep_dive.pdf)**
+* 💾 **[SQL Data Pipeline](sql_scripts/)**
 
 
 ### Phase 1: Exploratory Data Analysis (Foundation)
@@ -85,6 +84,19 @@ Analyzed 100k+ records to map the trajectory of the platform and define the core
 | :--- | :--- | :--- |
 | **Regional Rank** | `CTE` with `RANK() OVER(PARTITION BY)`. | **National Consensus:** Credit cards are the #1 payment method in 100% of states, confirming a unified financial strategy is viable nationwide. |
 
+## ⚙️ SQL Data Pipeline
+
+To ensure a reproducible and modular analysis, I developed a 4-stage SQL pipeline. This approach transforms raw data into structured tables (Marts and Dimensions) for optimized querying.
+
+| Script ID | Module Name | Primary Objective |
+| :--- | :--- | :--- |
+| **01** | `eda_base_exploration` | Initial data auditing, summary statistics, and identifying missing values. |
+| **02** | `mart_customer_seg` | Creating a centralized table for customer behavior and regional distribution. |
+| **03** | `fct_logistics_eff` | Calculating shipping lead times, carrier performance, and freight-to-price ratios. |
+| **04** | `dim_payment_beh` | Segmenting orders by payment method and analyzing installment trends. |
+
+> **Technical Note:** These scripts are designed to be run sequentially to maintain data integrity and handle dependencies between tables.
+
 ### Final Strategic Recommendations
 * **Regional Fulfillment:** Establishing "Satelite Warehouses" in the North/Northeast could reduce freight by 30-40% and unlock market share in high-cost states like RR and PB.
 
@@ -98,7 +110,7 @@ Analyzed 100k+ records to map the trajectory of the platform and define the core
 
 **Shital** | *Lead Data Science Instructor & Data Analyst*
 
-With over **7 years of professional experience** and **1,500+ technical sessions** conducted, I specialize in bridging the gap between complex technical jargon and strategic business communication. This project demonstrates my dual expertise: high-precision technical implementation in **SQL/BigQuery** and the ability to translate raw data into actionable narratives for non-technical stakeholders.
+With over **7 years of professional experience** in Business and EdTech, Where **1,500+ technical hands-on sessions** conducted globally (USA,UK,Canada,Australia,India), I specialize in bridging the gap between complex technical jargon and strategic business communication. This project demonstrates my dual expertise: high-precision technical implementation in **SQL/BigQuery** and the ability to translate raw data into actionable narratives for non-technical stakeholders.
 
 * 🎓 **Education:** Master of Computer Science (Major in Data Science & Machine Learning)
 * 📜 **Certifications:** Microsoft Certified: Power BI Data Analytics Associate (PL-300)
