@@ -18,6 +18,13 @@ retail-growth-logistics-optimization/
 │   └── 04_dim_payment_behavior.sql
 └── README.md                # Project documentation
 
+### 🚀 Key Deliverables
+
+* 📊 [Executive Summary & Insights (PDF)](reports/ecommerce_analysis_insights.pdf)
+* 📑 [Professional Analytics Report (PDF)](reports/analytics_report.pdf)
+* 🔍 [Technical Deep Dive (PDF)](reports/project_deep_dive.pdf)
+* 💾 [SQL Data Pipeline](sql_scripts/)
+
 ### Phase 1: Exploratory Data Analysis (Foundation)
 Before performing deep analysis, I conducted a comprehensive audit of the dataset to ensure data quality and integrity.
 
