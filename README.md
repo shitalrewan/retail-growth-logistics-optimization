@@ -19,10 +19,11 @@ retail-growth-logistics-optimization/
 └── README.md                # Project documentation
 
 ### 🚀 Key Deliverables
-* 📊 [Executive Summary & Insights (PDF)](reports/E-commerce%20Analysis_%20Insights%20&%20Recommendations.pdf) — *Strategic business recommendations.*
-* 📑 [Professional Analytics Report (PDF)](reports/analytics_report.pdf) — *Comprehensive technical analysis and data methodology.*
-* 🔍 [Technical Deep Dive (PDF)](reports/project_deep_dive.pdf) — *Extended visualizations and edge-case exploration.*
-* 💾 [SQL Data Pipeline](sql_scripts/) — *Production-ready transformation scripts.*
+
+* 📊 [Executive Summary & Insights (PDF)](reports/E-commerce%20Analysis_%20Insights%20%26%20Recommendations.pdf)
+* 📑 [Professional Analytics Report (PDF)](reports/analytics_report.pdf)
+* 🔍 [Technical Deep Dive (PDF)](reports/project_deep_dive.pdf)
+* 💾 [SQL Data Pipeline](sql_scripts/)
 
 ### Phase 1: Exploratory Data Analysis (Foundation)
 Before performing deep analysis, I conducted a comprehensive audit of the dataset to ensure data quality and integrity.
