@@ -2,6 +2,28 @@
 
 By analyzing this extensive dataset, it becomes possible to gain valuable insights into Target's operations in Brazil. The information can shed light on various aspects of the business, such as order processing, pricing strategies, payment and shipping efficiency, customer demographics, product characteristics, and customer satisfaction levels.
 
+## 📂 Project Structure
+
+```text
+retail-growth-logistics-optimization/
+├── assets/                  # Key visualizations (Peak hours, etc.)
+├── docs/                    # Data architecture & Target dataset schema
+├── reports/                 # Executive deliverables & Deep dives
+│   ├── E-commerce Analysis_Insights & Recommendations.pdf
+│   └── project_deep_dive.pdf
+├── sql_scripts/             # End-to-end SQL pipeline (01 to 04)
+│   ├── 01_eda_base_exploration.sql
+│   ├── 02_mart_customer_segmentation.sql
+│   ├── 03_fct_logistics_efficiency.sql
+│   └── 04_dim_payment_behavior.sql
+└── README.md                # Project documentation
+
+```markdown
+### 🚀 Key Deliverables
+* 📊 **[Executive Summary & Insights (PDF)](reports/E-commerce%20Analysis_%20Insights%20&%20Recommendations.pdf)** - High-level business recommendations.
+* 🔍 **[Technical Deep Dive (PDF)](reports/project_deep_dive.pdf)** - Detailed methodology and extended visualizations.
+* 💾 **[SQL Data Pipeline](sql_scripts/)** - Production-ready scripts for data transformation.
+
 
 ### Phase 1: Exploratory Data Analysis (Foundation)
 Before performing deep analysis, I conducted a comprehensive audit of the dataset to ensure data quality and integrity.
