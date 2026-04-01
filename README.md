@@ -9,7 +9,8 @@ retail-growth-logistics-optimization/
 ├── assets/                  # Key visualizations (Peak hours, etc.)
 ├── docs/                    # Data architecture & Target dataset schema
 ├── reports/                 # Executive deliverables & Deep dives
-│   ├── E-commerce Analysis_Insights & Recommendations.pdf
+│   ├── ecommerce_analysis_insights.pdf
+│   ├── analytics_report.pdf
 │   └── project_deep_dive.pdf
 ├── sql_scripts/             # End-to-end SQL pipeline (01 to 04)
 │   ├── 01_eda_base_exploration.sql
@@ -17,6 +18,8 @@ retail-growth-logistics-optimization/
 │   ├── 03_fct_logistics_efficiency.sql
 │   └── 04_dim_payment_behavior.sql
 └── README.md                # Project documentation
+```
+
 ### 🚀 Key Deliverables
 
 * 📊 **[Executive Summary & Insights (PDF)](reports/ecommerce_analysis_insights.pdf)** — *Strategic business findings and recommendations.*
