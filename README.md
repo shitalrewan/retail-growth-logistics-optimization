@@ -20,7 +20,7 @@ retail-growth-logistics-optimization/
 
 ### Key Deliverables
 
-- [Executive Summary and Insights](reports/E-commerce%20Analysis_%20Insights%20%26%20Recommendations.pdf)
+- [Executive Summary and Insights](reports/E-commerce %20Analysis_%20Insights%20%26%20Recommendations.pdf)
 - [Professional Analytics Report](reports/analytics_report.pdf)
 - [Technical Deep Dive](reports/project_deep_dive.pdf)
 - [SQL Data Pipeline](sql_scripts/)
